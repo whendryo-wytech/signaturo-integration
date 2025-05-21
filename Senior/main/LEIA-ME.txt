@@ -1,0 +1,190 @@
+---------------------------------------------------------
+-------------------------LEIA-ME-------------------------
+---------------------------------------------------------
+
+-------------------!!!!IMPORTANTE!!!!--------------------
+A presente rotina não substitui qualquer outra rotina da arquitetura da Senior Sistemas, tampouco existe vínculo legal entre a Signaturo e Senior Sistemas.
+
+A integração foi desenvolvida com objetivo de facilitar a integração entre a Senior Sistemas e o Signaturo, dessa forma o Signaturo não se reponsabiliza por utilizações incorretas, adpatações e atualizações no Sistema Senior.
+
+A integração não aplica, altera, ou exclui qualquer registro nativo do sistema. Todas as tabelas e registros são isolados em controle próprio.
+
+Aconselhamos fortemente a aplicação da rotina em ambiente de homologação antes de aplica-lá em base de produção.
+-------------------!!!!IMPORTANTE!!!!--------------------
+
+----------------------Notas da Versão--------------------
+Versão 1.0.0 06/08/2023
+Versão 1.0.1 07/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Implementação de parâmetro de geração de pastas
+	- Ajuste no nome do signatário
+Versão 1.0.2 07/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Implementação de lote na entrada da integração
+Versão 1.0.3 09/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Alteração do limite de empresas de 99 para 9999
+	- Ajuste do título do relatório
+	- Ajuste na tela de configuração, vinculando campo do tipo de documento com a tabela R022DOC
+	- Implementação de configuração de autenticação pelo e-mail particular ou comercial
+	- Melhoria na descrição da autenticação
+	- Inclusão de documentação com o padrão de variáveis para configuração de tela de entrada
+Versão 1.0.4 11/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Exclusão do relacionamento do histórico de C. Custo no relatório
+	- Implementação de campo de indicação da obrigação da selfie na tela de entrada
+Versão 1.0.5 14/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Implementação de parâmetro para unificar os PDFs de uma pasta, nos arquivos que estão sendo gerados
+Versão 1.0.6 16/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Correção no tratamento de celular na ficha complementar do colaborador
+Versão 1.0.7 16/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Implementação de campo para texto da notificação na tela de entrada
+	- Implementação de coluna no relatório com descrição da situação do processo
+	- Implementação de signatário adicional (orderly) na tela de entrada do relatório
+Versão 1.0.8 17/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Implementação de tratamento de tags html no campo de texto da notificação. Ex.: <br> => $$br|| , <b>Olá</b> => $$b||Olá$$/b||
+Versão 1.0.9 18/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Implementação de novas variáveis de data para utilização
+	- Melhoria na documentação de variáveis de entrada
+Versão 1.0.10 19/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Ajustes de variáveis no relatório
+Versão 1.1.0 21/08/2023 - ***Quebra de compatibilidade com versões anteriores, siga os passos de instalação e recrie os objetos***
+	- Objetos alterados: signaturo.tbs, FPDO800.COL, FP_SignaturoResponsavelColaborador.sfr e FP_SignaturoResponsavelColaborador.sit
+	- Criação da enumeração "USU_SGN_TipAut" no CBDS
+	- Criação da tabela "USU_TSGN000CRC" no CBDS
+	- Criação da coluna "USU_PasTmp" na tabela "USU_TSGN000CED", para controle de pasta temporária na aplicação
+	- Criação da tela "Signaturo - Responsável Colaborador" para lançamento do responsável pelo colaborador. Substitui o signatário do colaborador, pelo responsável cadastrado
+	- Correção do merge do PDF, estava mergeando duas vezes quando havia documento gerado mais documentos extras
+Versão 1.1.1 22/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Implementação de tratamento para signatário menores de 18 anos, o sistema irá liberar o campo *blockUnderage* conforme a tela de entrada
+Versão 1.1.2 26/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Melhoria na execução do relatório
+Versão 1.1.3 29/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Inclusão da função wSetarCalculo no relatório, para melhorar o carregamento de variáveis
+	- Inclusão do campo "Bloqueia Execução sem Geração" para gerar error quando qualquer documento não for gerado na execução, para esse comportamento o valor desse campo deverá ser "S- Sim"
+	- Correção da variável "ESomAdm". Ela estava relacionada incorretamente
+	- Correção de duplicidade de colaborador quando o local possuia histórico de revisão
+Versão 1.1.4 30/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Ajuste da variável dDatIni para os modelos de admissão
+Versão 1.1.5 30/08/2023
+	- Objetos alterados: FPDO800.COL
+	- Correção de CPF e ID do signatário adicional
+Versão 1.2.0 02/09/2023 - ***Quebra de compatibilidade com versões anteriores, siga os passos de instalação e recrie os objetos***
+    - Objetos alterados: signaturo.tbs, FPDO800.COL, FP_SignaturoConfiguracao.sfr e FP_SignaturoConfiguracao.sit
+    - Criação da enumeração "USU_SGN_PadPas" no CBDS
+	- Criação da coluna "USU_PadPas" na tabela "USU_TSGN000DAS", para controle do padrão das pastas na plataforma
+	- Criação de campo na tela "FP_SignaturoConfiguracao.sfr" para selecionar o padrão da pasta do documento
+	- Implementação de tipo de documento na requisição de assinatura
+	- Melhoria na descrição dos logs do processamento
+	- Implementação de seleção de selfie obrigatória para signatário adicional (colaborador/responsável)
+Versão 1.2.1 06/09/2023
+	- Objetos alterados: FPDO800.COL
+	- Correção do tratamento do celular quando era colocado no segundo campo da ficha complementar
+	- Correção do tratamento do celular quando existia mais de um envio de SMS no mesmo relatório
+Versão 1.2.2 07/09/2023
+	- Objetos alterados: FPDO800.COL
+	- Implementação de tratamento de tags de campos no texto da notificação. Ex.: Olá #NOMFUN# => Olá João Silva
+Versão 1.2.3 21/09/2023
+	- Objetos alterados: FPDO800.COL
+	- Implementação de tempo de lembrete na tela de entrada
+Versão 1.2.4 09/10/2023
+	- Objetos alterados: FPDO800.COL
+	- Retirada das opções de lembrete de 1, 2, 3 e 4 dias
+	- Adequação do consumo da API para que o "rememberDay" fique no objeto "signer"
+	- Liberação de autenticação via WhatsApp (verificar disponibilidade junto ao comercial)
+	- Liberação de autenticação diferente para o signatário adicional
+Versão 1.2.5 17/10/2023
+	- Objetos alterados: FPDO800.COL
+	- Alteração dos dias de lembrete. Importante, se você possui processos automáticos agendados, as chaves desse campo foram alteradas e precisam ser corrigidas
+	- Implementação da opção de integração "05 - Atualiza a Situação dos Processos de Assinatura", otimizando os processos de sincronia entre os sistemas
+	- Implementada a opção "Bloqueia Visualização Pública", para que o documento só seja disponibilizado para o colaborador após inserir seus dados pessoais
+Versão 1.2.6 31/10/2023
+	- Objetos alterados: FPDO800.COL
+	- Alteração dos campos "Autenticação" e "Autenticação (Signatário Adicional)". Importante, se você possui processos automáticos agendados, as chaves desse campo foram alteradas e precisam ser corrigidas
+	- Implementação de autenticação via "Pix"
+Versão 1.2.7 05/11/2023
+	- Objetos alterados: N/A
+	- Inclusão de aceleradores SQL na integração
+Versão 1.2.8 14/11/2023
+	- Objetos alterados: FPDO800.COL
+	- Liberação de opção do download em pasta de rede, sem precisar salvar na Ficha Complementar
+Versão 1.3.0 02/12/2023 - ***Quebra de compatibilidade com versões anteriores, siga os passos de instalação e recrie os objetos***
+	- Objetos alterados: signaturo.tbs, FPDO800.COL, FP_SignaturoConfiguracao.sfr e FP_SignaturoConfiguracao.sit
+	- Tabelas alteradas: USU_TSGN000DAS
+	- Implementado webservice de geração de outros módulos. A execução dos relatórios do AP será local, já dos outros módulos será via REQUEST SOAP. 
+Versão 1.3.1 24/11/2023
+	- Objetos alterados: FPDO800.COL
+	- Implementada a opção "Tipo de Geração de Arquivos" para determinar qual o tipo de execução para geração de relatórios via WS
+Versão 1.4.0 11/01/2024 - ***Quebra de compatibilidade com versões anteriores, siga os passos de instalação e recrie os objetos***
+	- Objetos alterados: signaturo.tbs, FPDO800.COL, Enumeração USU_SGN_PadPas
+	- Implementado novo padrão de pastas, agora é possível colocar o código da filial
+Versão 1.4.1 30/01/2024
+	- Objetos alterados: FPDO800.COL
+	- Corrigida ordenação do relatório
+	- Corrigida a limpeza de memória, para geração de documentos via webservice
+Versão 1.4.2 12/02/2024
+	- Objetos alterados: FPDO800.COL
+	- Corrigida mensagem de documentos para geração de documentos via webservice
+	- Corrigida limpeza de variáveis na geração de documentos via webservice
+Versão 1.5.0 08/03/2024 - ***Quebra de compatibilidade com versões anteriores, siga os passos de instalação e recrie os objetos***
+	- Objetos alterados: signaturo.tbs, FPDO800.COL, FP_SignaturoConfiguracao.sfr e FP_SignaturoConfiguracao.sit
+	- Implementado novo padrão de pastas para integração "09 - Cod. Empresa + Apelido Empresa\(CPF + Nome)". 
+	- Alterada a mensagem de erro ao validar o e-mail, agora o endereço que não foi validado aparece na mensagem.
+Versão 1.5.1 12/03/2024
+	- Objetos alterados: FPDO800.COL
+	- Corrigido máscara de numeração da geração dos documentos, para completar com três zeros. Ex.: "1 - Documento Admissão" => "001 - Documento Admissão"
+Versão 1.5.2 11/06/2024
+	- Objetos alterados: FPDO800.COL
+	- Adicionado o campo "Tipo de Documento (Descrição)" para possibilitar ao usuário informar uma descrição diferente do tipo de documento enviado
+	- Ajustado o campo "Grupo de Modelo" para três posições
+	- Adicionado o campo "E-mail do Responsável" para informar o e-mail do responsável para o envio de confirmação de assinatura
+	- Adicionado o parâmetro "department" na execução com o valor do Local do Organograma na data de referência
+	- Adicionado o parâmetro "costCenter" na execução com o valor do Centro de Custo na data de referência
+Versão 1.5.3 07/09/2024
+	- Objetos alterados: FPDO800.COL
+	- Inclusa ordenação no campo "base64" para execução via middleware
+Versão 1.5.4 19/02/2025
+	- Objetos alterados: FPDO800.COL
+	- Inclusa opção para ordernar o fluxo de assinatura para signatário adicional
+	- Setado as variáveis dDat004 e dDat005 como 01/01/1901 e 31/12/2040 respectivamente
+	- Ajustado para que o nome do arquivo siga a nomemclatura da entrada "Tipo de Documento (Descrição)", quando informada
+Versão 1.5.5 20/02/2025
+	- Objetos alterados: FPDO800.COL
+	- Ajustado parâmetro de atualização de status de assinatura, para considerar o filtro de entrada
+	- Incluso o cadastro do colaborador no nome do arquivo, quando efetuado download para pasta
+	
+Para instalação, execute os seguintes passos:
+
+1) Realizar backup da Senior
+1.1) Backup da pasta de instalação do sistema. Ex.: "C:\Senior"
+1.2) Backup do banco de dados
+
+2) Colocar a pasta "Signaturo" no diretório "vetorh". Ex.: C:\Senior\Vetorh\Signaturo
+
+3) Copiar as enumerações com prefixo "USU_SGN_" do arquivo "signaturo.tbs", no arquivo "vetorh.tbs". Cuidado! Ao copiar, o sistema aplica o sufixo "2" no nome da enumeração, esse caractér deverá ser retirado.
+3.1) Aplicar as alterações via CBDS
+
+4) Copiar as tabelas com prefixo "USU_TSGN" do arquivo "signaturo.tbs", no arquivo "vetorh.tbs"
+4.1) Aplicar as alterações via CBDS
+
+5) Copiar as views com prefixo "USU_VSGN" do arquivo "signaturo.tbs", no arquivo "vetorh.tbs". É necessário "criar" as views manualmente, pois o CBDS não deixar copiar views de SQL Nativo
+5.1) Aplicar as alterações via CBDS
+
+6) Consistir a base de dados via CBDS
+
+7) Copiar o arquivo "FPDO800.COL" para a pasta de modelos do sistema. Ex.: "C:\Senior\Modelos"
+
+8) Importar os arquivos da pasta "Telas" para as telas (SGI) do Senior, via editor de telas
+8.1) Configurar menu "X-Window" conforme imagem "telas.jpg"
+
+9) Reiniciar o sistema

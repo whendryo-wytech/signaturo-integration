@@ -5,11 +5,11 @@
 -------------------!!!!IMPORTANTE!!!!--------------------
 A presente rotina não substitui qualquer outra rotina da arquitetura da Senior Sistemas, tampouco existe vínculo legal entre a Signaturo e Senior Sistemas.
 
-A integração foi desenvolvida com objetivo de facilitar a integração entre a Senior Sistemas e o Signaturo, dessa forma o Signaturo não se reponsabiliza por utilizações incorretas, adpatações e atualizações no Sistema Senior.
+A integração foi desenvolvida com objetivo de facilitar a integração entre a Senior Sistemas e o Signaturo, dessa forma o Signaturo não se responsabiliza por utilizações incorretas, adaptações e atualizações no Sistema Senior.
 
 A integração não aplica, altera, ou exclui qualquer registro nativo do sistema. Todas as tabelas e registros são isolados em controle próprio.
 
-Aconselhamos fortemente a aplicação da rotina em ambiente de homologação antes de aplica-lá em base de produção.
+Aconselhamos fortemente a aplicação da rotina em ambiente de homologação antes de aplica-la em base de produção.
 -------------------!!!!IMPORTANTE!!!!--------------------
 
 ----------------------Notas da Versão--------------------
@@ -162,6 +162,9 @@ Versão 1.5.5 20/02/2025
 	- Objetos alterados: FPDO800.COL
 	- Ajustado parâmetro de atualização de status de assinatura, para considerar o filtro de entrada
 	- Incluso o cadastro do colaborador no nome do arquivo, quando efetuado download para pasta
+Versão 1.5.6 23/02/2025
+	- Objetos alterados: FPDO800.COL
+	- Ajustado para buscar o status da assinatura a partir do envelope e não do processo
 	
 Para instalação, execute os seguintes passos:
 
@@ -171,7 +174,7 @@ Para instalação, execute os seguintes passos:
 
 2) Colocar a pasta "Signaturo" no diretório "vetorh". Ex.: C:\Senior\Vetorh\Signaturo
 
-3) Copiar as enumerações com prefixo "USU_SGN_" do arquivo "signaturo.tbs", no arquivo "vetorh.tbs". Cuidado! Ao copiar, o sistema aplica o sufixo "2" no nome da enumeração, esse caractér deverá ser retirado.
+3) Copiar as enumerações com prefixo "USU_SGN_" do arquivo "signaturo.tbs", no arquivo "vetorh.tbs". Cuidado! Ao copiar, o sistema aplica o sufixo "2" no nome da enumeração, esse caractere deverá ser retirado.
 3.1) Aplicar as alterações via CBDS
 
 4) Copiar as tabelas com prefixo "USU_TSGN" do arquivo "signaturo.tbs", no arquivo "vetorh.tbs"
